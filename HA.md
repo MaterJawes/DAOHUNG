@@ -683,9 +683,6 @@ Kết quả:
        Rule added (v6)
 - Chúng ta sẽ tạo ba tài khoản MariaDB mà HAProxy sẽ sử dụng trên mỗi máy chủ để kiểm tra xem MariaDB có đang chạy và phản hồi hay không. Các tài khoản này sẽ không được cấp bất kỳ đặc quyền nào trong cụm, nhưng theo mặc định, chúng có thể thấy cơ sở dữ liệu information_schema . Nếu điều này có quá nhiều rủi ro về bảo mật đối với bạn, bạn có thể xóa tùy chọn cài đặt kiểm tra người dùng mysql-check user clustercheck và bỏ qua bước tiếp theo. Thay vào đó, HAProxy sẽ thực hiện kiểm tra cơ bản để xác minh MariaDB đang chạy:
 
-      sudo mysql -u root -e "CREATE USER clustercheck@'192.168.1.133';CREATE USER clustercheck@'192.168.1.134';CREATE USER clustercheck@'192.168.50.135';flush privileges;"
-
-
 - Restart the HAProxy service on each server:
 
       sudo systemctl restart haproxy
